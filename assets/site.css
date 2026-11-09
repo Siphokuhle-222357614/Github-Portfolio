@@ -1,0 +1,19 @@
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+@keyframes drop{from{opacity:0;transform:translateY(-32px) rotate(-3deg)}to{opacity:1;transform:none}}
+@keyframes pagein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes shift{50%{background-position:100% 50%}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.card-in{opacity:0;animation:drop .6s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--d)}
+main{animation:pagein .5s ease both}
+.todo{background:#FFE7A8;border-radius:4px;padding:0 4px;color:#1B2A4A}
+.flow{background:linear-gradient(120deg,#1B2A4A,#0E5F73,#1B2A4A);background-size:200% 200%;animation:shift 12s ease infinite}
+.bob{animation:bob 3s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:50;background:linear-gradient(90deg,#0E8C99,#F5A524)}
+.lift{transition:transform .2s ease,box-shadow .2s ease}.lift:hover{transform:translateY(-4px);box-shadow:0 10px 24px #1B2A4A22}
+a:focus-visible,summary:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}main,.card-in,.flow,.bob{animation:none}.card-in{opacity:1}.reveal{opacity:1;transform:none;transition:none}.lift{transition:none}}
+.fill{width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.in .fill,.in.fill{width:var(--w)}
+@media (prefers-reduced-motion:reduce){.fill{width:var(--w);transition:none}}
